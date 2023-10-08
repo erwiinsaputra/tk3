@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+struct Pegawai {
+    char nip[20];
+    char nama[50];
+    char alamat[100];
+    char no_hp[15];
+    char jabatan[50];
+    char golongan;
+};
+
+int main() {
+    struct Pegawai pegawai;
+    int gaji_pokok;
+
+    printf("Input Data Pegawai:\n");
+    printf("NIP: ");
+    scanf("%s", pegawai.nip);
+    printf("Nama: ");
+    scanf("%s", pegawai.nama);
+    printf("Alamat: ");
+    scanf("%s", pegawai.alamat);
+    printf("No HP: ");
+    scanf("%s", pegawai.no_hp);
+    printf("Jabatan: ");
+    scanf("%s", pegawai.jabatan);
+    printf("Golongan (D1, D2, atau D3): ");
+    scanf(" %c", &pegawai.golongan);
+
+    switch (pegawai.golongan) {
+        case 'D1':
+            gaji_pokok = 2500000;
+            break;
+        case 'D2':
+            gaji_pokok = 2000000;
+            break;
+        case 'D3':
+            gaji_pokok = 1500000;
+            break;
+        default:
+            printf("Golongan tidak valid.\n");
+            return 1;
+    }
+
+    int jumlah_jam_lembur;
+    printf("Input Jumlah Jam Lembur: ");
+    scanf("%d", &jumlah_jam_lembur);
+
+    int lemburan_per_jam;
+    switch (pegawai.golongan) {
+        case 'D1':
+            lemburan_per_jam = 10000;
+            break;
+        case 'D2':
+            lemburan_per_jam = 5000;
+            break;
+        case 'D3':
+            lemburan_per_jam = 2500;
+            break;
+    }
+
+    int total_gaji = gaji_pokok + (jumlah_jam_lembur * lemburan_per_jam);
+    printf("Total Gaji Bulan Ini: Rp %d\n", total_gaji);
+
+    return 0;
+}
