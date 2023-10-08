@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int total_pembelian;
+    float diskon = 0.05;
+    int kupon_undian;
+
+    printf("Masukkan total pembelian: Rp ");
+    scanf("%d", &total_pembelian);
+
+    if (total_pembelian >= 100000) {
+        kupon_undian = total_pembelian / 100000;
+        printf("Anda mendapatkan %d kupon undian.\n", kupon_undian);
+
+        float potongan_harga = total_pembelian * diskon;
+        printf("Diskon sebesar Rp %.2f\n", potongan_harga);
+
+        total_pembelian -= potongan_harga;
+        printf("Total yang harus dibayar: Rp %d\n", total_pembelian);
+    } else {
+        printf("Maaf, total pembelian Anda kurang dari Rp 100.000,00. Tidak mendapatkan kupon undian atau diskon.\n");
+    }
+
+    return 0;
+}
